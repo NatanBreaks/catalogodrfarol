@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Preços DR Farol - 12/23</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .header .logo {
+            max-width: 200px;
+            margin-bottom: 15px;
+        }
+        
+        .header .date {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #f39c12;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section-header {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        th {
+            background-color: #f8f8f8;
+            color: #333;
+            font-weight: bold;
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        
+        .desc-col {
+            width: 50%;
+        }
+        
+        .price-col {
+            width: 25%;
+            text-align: right;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .price {
+            font-weight: bold;
+            text-align: right;
+            color: #2c3e50;
+        }
+        
+        .lamp-img {
+            width: 40px;
+            height: 30px;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        .product-cell {
+            display: flex;
+            align-items: center;
+        }
+        
+        .guarantee-box {
+            background-color: #e74c3c;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .guarantee-box h3 {
+            margin: 0 0 15px 0;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .guarantee-box .price {
+            font-size: 28px;
+            color: white;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #222;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        .values-section {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .value-box {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            width: 30%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-box h3 {
+            color: #e74c3c;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .value-box p {
+            line-height: 1.6;
+        }
+        
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            .guarantee-box, .values-section, .footer {
+                page-break-inside: avoid;
+            }
+            
+            .two-columns {
+                display: block;
+            }
+            
+            .column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .product-cell {
+                display: table-cell;
+            }
+            
+            .lamp-img {
+                display: inline-block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .two-columns {
+                flex-direction: column;
+            }
+            
+            .column {
+                width: 100%;
+            }
+            
+            .values-section {
+                flex-direction: column;
+            }
+            
+            .value-box {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            table {
+                font-size: 14px;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+            }
+            
+            .lamp-img {
+                width: 30px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <p class="logo-text">DR FAROL</p>
+            </div>
+            <h1>Tabela de Preços</h1>
+            <div class="date">Atualizada em 12/23</div>
+        </div>
+        
+        <div class="two-columns">
+            <div class="column">
+                <div class="section">
+                    <h2 class="section-header">Lâmpadas Halógenas</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="desc-col">Descrição</th>
+                                <th class="price-col">1 Ano</th>
+                                <th class="price-col">5 Anos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h1_halogena.png" alt="H1" class="lamp-img">
+                                        H1
+                                    </div>
+                                </td>
+                                <td class="price">R$ 40,00</td>
+                                <td class="price">R$ 80,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h3_halogena.png" alt="H3" class="lamp-img">
+                                        H3
+                                    </div>
+                                </td>
+                                <td class="price">R$ 40,00</td>
+                                <td class="price">R$ 80,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h4_halogena.png" alt="H4" class="lamp-img">
+                                        H4
+                                    </div>
+                                </td>
+                                <td class="price">R$ 45,00</td>
+                                <td class="price">R$ 90,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h7_halogena.png" alt="H7" class="lamp-img">
+                                        H7
+                                    </div>
+                                </td>
+                                <td class="price">R$ 40,00</td>
+                                <td class="price">R$ 80,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h8_halogena.png" alt="H8" class="lamp-img">
+                                        H8
+                                    </div>
+                                </td>
+                                <td class="price">R$ 80,00</td>
+                                <td class="price">R$ 160,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h9_halogena.png" alt="H9" class="lamp-img">
+                                        H9
+                                    </div>
+                                </td>
+                                <td class="price">R$ 80,00</td>
+                                <td class="price">R$ 160,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h11_halogena.png" alt="H11" class="lamp-img">
+                                        H11
+                                    </div>
+                                </td>
+                                <td class="price">R$ 80,00</td>
+                                <td class="price">R$ 160,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h13_halogena.png" alt="H13" class="lamp-img">
+                                        H13
+                                    </div>
+                                </td>
+                                <td class="price">R$ 120,00</td>
+                                <td class="price">R$ 240,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h15_halogena.png" alt="H15" class="lamp-img">
+                                        H15
+                                    </div>
+                                </td>
+                                <td class="price">R$ 120,00</td>
+                                <td class="price">R$ 240,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h27_halogena.png" alt="H27" class="lamp-img">
+                                        H27
+                                    </div>
+                                </td>
+                                <td class="price">R$ 80,00</td>
+                                <td class="price">R$ 160,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/hb_halogena.png" alt="HB" class="lamp-img">
+                                        HB
+                                    </div>
+                                </td>
+                                <td class="price">R$ 80,00</td>
+                                <td class="price">R$ 160,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h15_2_halogena.png" alt="H15" class="lamp-img">
+                                        H15
+                                    </div>
+                                </td>
+                                <td class="price">R$ 140,00</td>
+                                <td class="price">R$ 160,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h11b_halogena.png" alt="H11B" class="lamp-img">
+                                        H11B
+                                    </div>
+                                </td>
+                                <td class="price">R$ 120,00</td>
+                                <td class="price">R$ 240,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/hb2_halogena.png" alt="HB2" class="lamp-img">
+                                        HB2
+                                    </div>
+                                </td>
+                                <td class="price">R$ 140,00</td>
+                                <td class="price">R$ 260,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-header">Lâmpadas Halógenas Super Branca</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="desc-col">Descrição</th>
+                                <th class="price-col">1 Ano</th>
+                                <th class="price-col">5 Anos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h1_super.png" alt="H1 Super" class="lamp-img">
+                                        H1
+                                    </div>
+                                </td>
+                                <td class="price">R$ 50,00</td>
+                                <td class="price">R$ 100,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h4_super.png" alt="H4 Super" class="lamp-img">
+                                        H4
+                                    </div>
+                                </td>
+                                <td class="price">R$ 65,00</td>
+                                <td class="price">R$ 130,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h7_super.png" alt="H7 Super" class="lamp-img">
+                                        H7
+                                    </div>
+                                </td>
+                                <td class="price">R$ 50,00</td>
+                                <td class="price">R$ 100,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-header">Lâmpadas Miniaturas Halógenas</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="desc-col">Descrição</th>
+                                <th class="price-col">1 Ano</th>
+                                <th class="price-col">5 Anos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Esmagadinha T10 SKY</td>
+                                <td class="price">R$ 30,00</td>
+                                <td class="price">R$ 60,00</td>
+                            </tr>
+                            <tr>
+                                <td>Esmagadinha T10</td>
+                                <td class="price">R$ 15,00</td>
+                                <td class="price">R$ 30,00</td>
+                            </tr>
+                            <tr>
+                                <td>Esmagada T15</td>
+                                <td class="price">R$ 30,00</td>
+                                <td class="price">R$ 60,00</td>
+                            </tr>
+                            <tr>
+                                <td>Esmagada T10 Âmbar</td>
+                                <td class="price">R$ 30,00</td>
+                                <td class="price">R$ 60,00</td>
+                            </tr>
+                            <tr>
+                                <td>Esmagada S/Base</td>
+                                <td class="price">R$ 40,00</td>
+                                <td class="price">R$ 80,00</td>
+                            </tr>
+                            <tr>
+                                <td>Esmagada S/Base (2 polos)</td>
+                                <td class="price">R$ 45,00</td>
+                                <td class="price">R$ 90,00</td>
+                            </tr>
+                            <tr>
+                                <td>Esmagada C/Base</td>
+                                <td class="price">R$ 40,00</td>
+                                <td class="price">R$ 80,00</td>
+                            </tr>
+                            <tr>
+                                <td>Esma. S/Base Âmbar</td>
+                                <td class="price">R$ 45,00</td>
+                                <td class="price">R$ 90,00</td>
+                            </tr>
+                            <tr>
+                                <td>Esma. C/Base Âmbar</td>
+                                <td class="price">R$ 45,00</td>
+                                <td class="price">R$ 90,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        67 Comum
+                                    </div>
+                                </td>
+                                <td class="price">R$ 15,00</td>
+                                <td class="price">R$ 30,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-header">Outras Lâmpadas</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="desc-col">Descrição</th>
+                                <th class="price-col">1 Ano</th>
+                                <th class="price-col">5 Anos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/69_comum.png" alt="69 Comum" class="lamp-img">
+                                        69 Comum
+                                    </div>
+                                </td>
+                                <td class="price">R$ 15,00</td>
+                                <td class="price">R$ 30,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/1_polo_cristal.png" alt="1 Polo Cristal" class="lamp-img">
+                                        1 Polo Cristal
+                                    </div>
+                                </td>
+                                <td class="price">R$ 15,00</td>
+                                <td class="price">R$ 30,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/2_polos_cristal.png" alt="2 Polos Cristal" class="lamp-img">
+                                        2 Polos Cristal
+                                    </div>
+                                </td>
+                                <td class="price">R$ 20,00</td>
+                                <td class="price">R$ 40,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/1_polo_ambar.png" alt="1 Polo Âmbar" class="lamp-img">
+                                        1 Polo Âmbar
+                                    </div>
+                                </td>
+                                <td class="price">R$ 20,00</td>
+                                <td class="price">R$ 40,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/2_polos_ambar.png" alt="2 Polos Âmbar" class="lamp-img">
+                                        2 Polos Âmbar
+                                    </div>
+                                </td>
+                                <td class="price">R$ 20,00</td>
+                                <td class="price">R$ 40,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/torpedo_pmg.png" alt="Torpedo P/M/G" class="lamp-img">
+                                        Torpedo P/M/G
+                                    </div>
+                                </td>
+                                <td class="price">R$ 20,00</td>
+                                <td class="price">R$ 40,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/h21.png" alt="H21" class="lamp-img">
+                                        H21
+                                    </div>
+                                </td>
+                                <td class="price">R$ 60,00</td>
+                                <td class="price">R$ 120,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/r5.png" alt="R5" class="lamp-img">
+                                        R5
+                                    </div>
+                                </td>
+                                <td class="price">R$ 100,00</td>
+                                <td class="price">R$ 200,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/1_polo_vermelha.png" alt="1 Polo Vermelha" class="lamp-img">
+                                        1 Polo Vermelha
+                                    </div>
+                                </td>
+                                <td class="price">R$ 35,00</td>
+                                <td class="price">R$ 70,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/2_polo_vermelha.png" alt="2 Polo Vermelha" class="lamp-img">
+                                        2 Polo Vermelha
+                                    </div>
+                                </td>
+                                <td class="price">R$ 40,00</td>
+                                <td class="price">R$ 80,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="section">
+                    <h2 class="section-header">Lâmpadas LED</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="desc-col">Descrição</th>
+                                <th class="price-col">1 Fase</th>
+                                <th class="price-col">2 Fases</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_1g.png" alt="LED 1ªG" class="lamp-img">
+                                        S. LED 1ªG (sem garantia)
+                                    </div>
+                                </td>
+                                <td class="price">R$ 140,00</td>
+                                <td class="price">R$ 160,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_2g.png" alt="LED 2ª Geração" class="lamp-img">
+                                        S. LED 2ª Geração
+                                    </div>
+                                </td>
+                                <td class="price">R$ 350,00</td>
+                                <td class="price">R$ 380,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_3g.png" alt="LED 3ª Geração" class="lamp-img">
+                                        S. LED 3ª Geração
+                                    </div>
+                                </td>
+                                <td class="price">R$ 300,00</td>
+                                <td class="price">R$ 330,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_4g.png" alt="LED 4ª Geração" class="lamp-img">
+                                        S. LED 4ª Geração
+                                    </div>
+                                </td>
+                                <td class="price">R$ 500,00</td>
+                                <td class="price">R$ 550,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_5g.png" alt="LED 5ª Geração" class="lamp-img">
+                                        S. LED 5ª Geração
+                                    </div>
+                                </td>
+                                <td class="price">R$ 330,00</td>
+                                <td class="price">R$ 350,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_6g.png" alt="LED 6ª G" class="lamp-img">
+                                        S. LED 6ª G
+                                    </div>
+                                </td>
+                                <td class="price">R$ 350,00</td>
+                                <td class="price">R$ 380,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_7g.png" alt="LED 7ª Geração" class="lamp-img">
+                                        S. LED 7ª Geração
+                                    </div>
+                                </td>
+                                <td class="price">R$ 700,00</td>
+                                <td class="price">R$ 750,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_8g.png" alt="LED 8ª Geração" class="lamp-img">
+                                        S. LED 8ª Geração
+                                    </div>
+                                </td>
+                                <td class="price">R$ 800,00</td>
+                                <td class="price">R$ 850,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_9g.png" alt="LED 9ª Geração" class="lamp-img">
+                                        S. LED 9ª Geração
+                                    </div>
+                                </td>
+                                <td class="price">R$ 300,00</td>
+                                <td class="price">R$ 330,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_10g.png" alt="LED 10ª Geração" class="lamp-img">
+                                        S. LED 10ª Geração
+                                    </div>
+                                </td>
+                                <td class="price">R$ 400,00</td>
+                                <td class="price">R$ 430,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/led_11g.png" alt="LED 11ª Geração" class="lamp-img">
+                                        S. LED 11ª Geração
+                                    </div>
+                                </td>
+                                <td class="price">-</td>
+                                <td class="price">R$ 800,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-header">Lâmpadas Miniaturas LED</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="desc-col">Descrição</th>
+                                <th class="price-col">1 Ano</th>
+                                <th class="price-col">5 Anos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/t10_silicone.png" alt="T10 Silicone DRL" class="lamp-img">
+                                        T10 Silicone DRL
+                                    </div>
+                                </td>
+                                <td class="price">R$ 100,00</td>
+                                <td class="price">R$ 200,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/esmagada_d2.png" alt="Esmagada D2" class="lamp-img">
+                                        Esmagada D2
+                                    </div>
+                                </td>
+                                <td class="price">R$ 40,00</td>
+                                <td class="price">R$ 80,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/esmagada_d4.png" alt="Esmagada D4" class="lamp-img">
+                                        Esmagada D4
+                                    </div>
+                                </td>
+                                <td class="price">R$ 20,00</td>
+                                <td class="price">R$ 40,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/esmagada_d57.png" alt="Esmagada D57" class="lamp-img">
+                                        Esmagada D57
+                                    </div>
+                                </td>
+                                <td class="price">R$ 70,00</td>
+                                <td class="price">R$ 140,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/d3.png" alt="D3" class="lamp-img">
+                                        D3
+                                    </div>
+                                </td>
+                                <td class="price">R$ 20,00</td>
+                                <td class="price">R$ 40,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/d22_1polo.png" alt="D22 - 1 Polo" class="lamp-img">
+                                        D22 - 1 Polo
+                                    </div>
+                                </td>
+                                <td class="price">R$ 30,00</td>
+                                <td class="price">R$ 60,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/d22_2polos.png" alt="D22 - 2 Polos" class="lamp-img">
+                                        D22 - 2 Polos
+                                    </div>
+                                </td>
+                                <td class="price">R$ 50,00</td>
+                                <td class="price">R$ 100,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/esmagada_d26.png" alt="Esmagada D26" class="lamp-img">
+                                        Esmagada D26
+                                    </div>
+                                </td>
+                                <td class="price">R$ 60,00</td>
+                                <td class="price">R$ 120,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/esmagada_d15.png" alt="Esmagada D 15" class="lamp-img">
+                                        Esmagada D 15
+                                    </div>
+                                </td>
+                                <td class="price">R$ 40,00</td>
+                                <td class="price">R$ 80,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="images/esm_36_ceramica.png" alt="Esm. 36 Cerâmica" class="lamp-img">
+                                        Esm. 36 Cerâmica
+                                    </div>
+                                </td>
+                                <td class="price">R$ 50,00</td>
+                                <td class="price">R$ 100,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-header">Serviços</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="desc-col">Descrição</th>
+                                <th class="price-col" colspan="2">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Clareamento</td>
+                                <td class="price" colspan="2">R$ 60,00</td>
+                            </tr>
+                            <tr>
+                                <td>Restauração</td>
+                                <td class="price" colspan="2">R$ 120,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-header">Limpeza Interna e Clareamento</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="desc-col">Descrição</th>
+                                <th class="price-col" colspan="2">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Fácil</td>
+                                <td class="price" colspan="2">R$ 120,00</td>
+                            </tr>
+                            <tr>
+                                <td>Moderado</td>
+                                <td class="price" colspan="2">R$ 160,00</td>
+                            </tr>
+                            <tr>
+                                <td>Difícil</td>
+                                <td class="price" colspan="2">R$ 200,00</td>
+                            </tr>
+                            <tr>
+                                <td>Muito Difícil</td>
+                                <td class="price" colspan="2">R$ 350,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-header">Customização</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="desc-col">Descrição</th>
+                                <th class="price-col" colspan="2">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Unid. de Angel Eyes</td>
+                                <td class="price" colspan="2">R$ 900,00 a R$ 1.400,00</td>
+                            </tr>
+                            <tr>
+                                <td>Unid. Barra de LED com 1 Angel Eyes</td>
+                                <td class="price" colspan="2">R$ 1.400,00 a R$ 2.200,00</td>
+                            </tr>
+                            <tr>
+                                <td>Par de Angel Eyes</td>
+                                <td class="price" colspan="2">R$ 1.200,00 a R$ 1.600,00</td>
+                            </tr>
+                            <tr>
+                                <td>Par Barra de LED com 1 Par de Angel Eyes</td>
+                                <td class="price" colspan="2">R$ 1.600,00 a R$ 2.200,00</td>
+                            </tr>
+                            <tr>
+                                <td>Unid. Demon Eyes (sem projetor)</td>
+                                <td class="price" colspan="2">R$ 280,00</td>
+                            </tr>
+                            <tr>
+                                <td>Metalização (valor unitário)</td>
+                                <td class="price" colspan="2">R$ 220,00 a R$ 310,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="guarantee-box">
+            <h3>PARA GARANTIA DE 5 ANOS ACRESCENTAR</h3>
+            <div class="price">R$ 50,00</div>
+        </div>
+        
+        <div class="values-section">
+            <div class="value-box">
+                <h3>Missão</h3>
+                <p>Entregar sempre mais do que foi pedido em todos os sentidos: atendimento, execução e pós-venda.</p>
+            </div>
+            <div class="value-box">
+                <h3>Visão</h3>
+                <p>Ser uma grande rede de franquias mundial, que valoriza seus clientes, parceiros e colaboradores.</p>
+            </div>
+            <div class="value-box">
+                <h3>Valor</h3>
+                <p>Sempre olhar o próximo como a si mesmo.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>DR FAROL - Especialistas em Iluminação Automotiva</p>
+            <p>Tabela de preços sujeita a alterações sem aviso prévio</p>
+        </div>
+    </div>
+</body>
+</html>
